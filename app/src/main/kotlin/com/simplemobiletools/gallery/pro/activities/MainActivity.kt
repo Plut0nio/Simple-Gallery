@@ -299,8 +299,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
         }
 
-        menu.findItem(R.id.temporarily_show_hidden).isVisible = !isRPlus() && !config.shouldShowHidden
-        menu.findItem(R.id.stop_showing_hidden).isVisible = !isRPlus() && config.temporarilyShowHidden
+        // menu.findItem(R.id.temporarily_show_hidden).isVisible = !isRPlus() && !config.shouldShowHidden
+        // menu.findItem(R.id.stop_showing_hidden).isVisible = !isRPlus() && config.temporarilyShowHidden
+        menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
+        menu.findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
 
         updateMenuItemColors(menu)
         return true
@@ -1443,7 +1445,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             add(Release(277, R.string.release_277))
             add(Release(295, R.string.release_295))
             add(Release(327, R.string.release_327))
-            add(Release(359, R.string.faq_16_text))
+            // add(Release(359, R.string.faq_16_text))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

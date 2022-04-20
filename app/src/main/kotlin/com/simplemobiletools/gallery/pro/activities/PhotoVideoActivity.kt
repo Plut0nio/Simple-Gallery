@@ -142,8 +142,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             val realPath = intent.extras!!.getString(REAL_FILE_PATH)
             if (realPath != null && getDoesFilePathExist(realPath)) {
-                val avoidShowingHiddenFiles = isRPlus() && (File(realPath).isHidden || File(realPath.getParentPath(), NOMEDIA).exists())
-                if (!avoidShowingHiddenFiles) {
+                // val avoidShowingHiddenFiles = isRPlus() && (File(realPath).isHidden || File(realPath.getParentPath(), NOMEDIA).exists())
+                // if (!avoidShowingHiddenFiles) {
                     if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
                         if (isFileTypeVisible(realPath)) {
                             bottom_actions.beGone()
@@ -154,7 +154,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
                     } else {
                         filename = realPath.getFilenameFromPath()
                     }
-                }
+                // }
             }
         }
 
@@ -168,8 +168,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             return
         } else {
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
-            val avoidShowingHiddenFiles = isRPlus() && File(path).isHidden
-            if (!avoidShowingHiddenFiles) {
+            // val avoidShowingHiddenFiles = isRPlus() && File(path).isHidden
+            // if (!avoidShowingHiddenFiles) {
                 if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && filename.contains('.') && getDoesFilePathExist(path)) {
                     if (isFileTypeVisible(path)) {
                         bottom_actions.beGone()
@@ -179,7 +179,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
                         return
                     }
                 }
-            }
+            // }
         }
 
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
